@@ -2,6 +2,7 @@ package com.dx.gupiao;
 
 import com.dx.gupiao.pojo.StockDTO;
 import com.dx.gupiao.utils.RestTemplateUtils;
+import com.dx.gupiao.utils.StockDapandata;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class ApplicationTest {
     private RestTemplateUtils restTemplateUtils;
     @Test
     public void test(){
-        StockDTO stockDTO = restTemplateUtils.getForObject("sh600519");
-        System.out.println(stockDTO);
+        StockDapandata stockDapandata = restTemplateUtils.getForObject("sh600519");
+        System.out.println(stockDapandata);
     }
 }

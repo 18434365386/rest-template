@@ -37,7 +37,7 @@ public class RestTemplateUtils {
      * @param code
      * @return
      */
-    public StockDTO getForObject(String code){
+    public StockDapandata getForObject(String code){
         String url =String.format(URL,code,keyConf.getAppKey());
         RestTemplate restTemplate = new RestTemplate();
         // 1、传入底层执行引擎
@@ -47,9 +47,9 @@ public class RestTemplateUtils {
 //        System.out.println(response);
         StockDapandata stockDapandata = response.getResult().get(0).getDapandata();
 //        System.out.println(stockDapandata);
-        StockDTO stockDTO = new StockDTO();
-        stockDTO.setName(stockDapandata.getName());
-        return stockDTO;
+//        StockDTO stockDTO = new StockDTO();
+//        stockDTO.setName(stockDapandata.getName());
+        return stockDapandata;
     }
     /**
      * 支持所有的contentType类型
