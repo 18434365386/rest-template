@@ -1,7 +1,6 @@
 package com.dx.gupiao.utils;
 
 import com.dx.gupiao.config.KeyConf;
-import com.dx.gupiao.pojo.StockDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.http.converter.HttpMessageConverter;
