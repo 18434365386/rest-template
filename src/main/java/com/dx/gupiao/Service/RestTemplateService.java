@@ -1,6 +1,8 @@
-package com.dx.gupiao.utils;
+package com.dx.gupiao.Service;
 
 import com.dx.gupiao.config.KeyConf;
+import com.dx.gupiao.utils.StockDapandata;
+import com.dx.gupiao.utils.StockResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -13,11 +15,12 @@ import java.util.Collections;
 import java.util.List;
 
 @Component
-public class RestTemplateUtils {
+public class RestTemplateService {
     @Autowired
 //    private RestTemplate restTemplate;
     private KeyConf keyConf;
     private static final String URL = "http://web.juhe.cn:8080/finance/stock/hs?gid=%s&key=%s";
+
 
 
 //    /**
@@ -30,6 +33,7 @@ public class RestTemplateUtils {
 //        ResponseEntity<User> responseEntity = restTemplate.getForEntity("localhost:8080/api/user/getById?id=" + id, User.class);
 //        return responseEntity;
 //    }
+
 
     /**
      * 通过GET请求获取响应结果
@@ -61,7 +65,7 @@ public class RestTemplateUtils {
         messageConverters.add(converter);
         return messageConverters;
     }
-//
+
 //    /**
 //     * 通过GET请求获得响应结果
 //     *
