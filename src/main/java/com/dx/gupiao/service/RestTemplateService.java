@@ -1,6 +1,5 @@
-package com.dx.gupiao.Service;
+package com.dx.gupiao.service;
 
-import com.dx.gupiao.Controller.RestTemplateController;
 import com.dx.gupiao.config.KeyConf;
 import com.dx.gupiao.utils.StockDapandata;
 import com.dx.gupiao.utils.StockResponse;
@@ -35,7 +34,6 @@ public class RestTemplateService {
 //        return responseEntity;
 //    }
 
-
     /**
      * 通过GET请求获取响应结果
      * @param code
@@ -55,6 +53,7 @@ public class RestTemplateService {
 //        stockDTO.setName(stockDapandata.getName());
         return stockDapandata;
     }
+
     /**
      * 支持所有的contentType类型
      * @return 类型转换

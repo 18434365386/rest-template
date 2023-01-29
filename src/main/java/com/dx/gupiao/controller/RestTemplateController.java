@@ -1,12 +1,9 @@
-package com.dx.gupiao.Controller;
+package com.dx.gupiao.controller;
 
 import com.dx.gupiao.utils.StockDapandata;
-import com.dx.gupiao.utils.StockResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +22,7 @@ public class RestTemplateController {
     // 3、模拟发送消息
     @ResponseBody
     public void sendMessage(StockDapandata stockDapandata){
-        kafkaTemplate.send(TOPIC_NAME,"这是一个消息,num="+stockDapandata).addCallback(success->{
+        kafkaTemplate.send(TOPIC_NAME,"test+"+stockDapandata).addCallback(success->{
             // 消息发送的topic
             String topic = success.getRecordMetadata().topic();
             // 消息发送的分区
