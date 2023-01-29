@@ -22,7 +22,7 @@ public class ApplicationTest {
 //    private RestTemplateDao restTemplateDao;
     @Test
     public void test(){
-        String data = restTemplateService.getForObject(2);
+        String data = restTemplateService.getForObject();
         restTemplateController.sendMessage(data);
         System.out.println(data);
 //        restTemplateDao.dao("sh600519");

@@ -1,8 +1,6 @@
 package com.dx.gupiao.service;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.dx.gupiao.config.KeyConf;
 import com.dx.gupiao.config.SZKeyConf;
 import com.dx.gupiao.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +20,7 @@ public class SZRestService {
 //    private RestTemplate restTemplate;
     private SZKeyConf keyConf;
 //    private static final String URL = "http://web.juhe.cn:8080/finance/stock/hs?gid=%s&key=%s";
-    private static final String URL = "https://opendata.sz.gov.cn/api/120238293/1/service.xhtml?appKey=%s&page=%s&rows=2&startDate=20210101&endDate=20211230";
-
+    private static final String URL = "https://opendata.sz.gov.cn/api/120238293/1/service.xhtml?appKey=%s";
 
 
 //    /**
@@ -39,16 +36,17 @@ public class SZRestService {
 
     /**
      * 通过GET请求获取响应结果
-     * @param code
+     * @param
      * @return
      */
-    public String getForObject(int code){
-        String url =String.format(URL,keyConf.getSzKey(),code);
+    public String getForObject(){
+        String url =String.format(URL,keyConf.getSzKey());
         RestTemplate restTemplate = new RestTemplate();
         // 1、传入底层执行引擎
         restTemplate.setMessageConverters(parseContentType());
         // 2、通过Get请求获取响应结果
         SZResponse response = restTemplate.getForObject(url, SZResponse.class);
+
 
 //        System.out.println(response);
 //        List<SZData> data = response.getData();
@@ -92,6 +90,20 @@ public class SZRestService {
 //        ResponseEntity<String> responseEntity = restTemplate.postForEntity("localhost:8080/api/user/insert", user, String.class);
 //        return responseEntity;
 //    }
+//    public String postForEntity() {
+////        String url = String.format(URL, keyConf.getSzKey());
+//        SZKeyConf szKeyConf = new SZKeyConf();
+//        RestTemplate restTemplate = new RestTemplate();
+//        // 1、传入底层执行引擎
+//        restTemplate.setMessageConverters(parseContentType());
+//        // 2、通过Get请求获取响应结果
+//        ResponseEntity<SZResponse> responseEntity = restTemplate.postForEntity(URL, szKeyConf, SZResponse.class);
+//        String data = JSON.toJSONString(responseEntity);
+//        return data;
+//    }
+
+
+
 //
 //
 //    /**
