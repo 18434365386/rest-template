@@ -2,8 +2,7 @@ package com.dx.gupiao;
 
 import com.dx.gupiao.controller.RestTemplateController;
 
-import com.dx.gupiao.service.RestTemplateService;
-import com.dx.gupiao.utils.StockDapandata;
+import com.dx.gupiao.service.SZRestService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(classes = Application.class)
 public class ApplicationTest {
     @Autowired
-    private RestTemplateService restTemplateService;
+    private SZRestService restTemplateService;
 
     @Autowired
     private RestTemplateController restTemplateController;
@@ -23,9 +22,9 @@ public class ApplicationTest {
 //    private RestTemplateDao restTemplateDao;
     @Test
     public void test(){
-        StockDapandata stockDapandata = restTemplateService.getForObject("sh600519");
-        restTemplateController.sendMessage(stockDapandata);
-        System.out.println(stockDapandata);
+        String data = restTemplateService.getForObject(2);
+        restTemplateController.sendMessage(data);
+        System.out.println(data);
 //        restTemplateDao.dao("sh600519");
     }
 }
